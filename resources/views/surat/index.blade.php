@@ -195,7 +195,7 @@ var table = $('#table-data').DataTable({
 
     // Apply CSS styles to reduce the margin between para and link
     para.style.marginBottom = "1px";  // Adjust the value as needed
-    link.style.color = "#F3B137"
+    link.style.color = "#499DB1"
     // Append paragraph and link to the container
     container.appendChild(para);
     container.appendChild(link);

@@ -4,7 +4,7 @@
 
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header bg-warning">
+      <div class="modal-header bg-warning" style="background-color: #499DB1 !important">
         <h4 class="modal-title">Detail Surat Perizinan</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
