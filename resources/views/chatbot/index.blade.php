@@ -43,11 +43,11 @@
 }
 
 input:checked + .slider {
-  background-color: #ffb136;
+  background-color: #499DB1;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #ffb136;
+  box-shadow: 0 0 1px #499DB1;
 }
 
 input:checked + .slider:before {
@@ -71,7 +71,7 @@ input:checked + .slider:before {
   <div class="row">
     <div class="col-lg-12">
       <nav aria-label="breadcrumb" role="navigation">
-        <ol class="breadcrumb bg-warning">
+        <ol class="breadcrumb bg-warning" style="background-color: #499DB1 !important">
           <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/home">Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">Chatbot</li>
         </ol>
@@ -130,7 +130,7 @@ input:checked + .slider:before {
                       </div>
 
                     <div class="text-left w-100">
-                      <button class="btn btn save" style="background: #ffb136; color:white; width: 150px;" type="submit">Simpan</button>
+                      <button class="btn btn save" style="background: #499DB1; color:white; width: 150px;" type="submit">Simpan</button>
                     </div>
                   </div>
                 </div>
