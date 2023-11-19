@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-lg-12">
       <nav aria-label="breadcrumb" role="navigation">
-        <ol class="breadcrumb bg-warning">
+        <ol class="breadcrumb bg-warning" style="background-color: #499DB1 !important">
           <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/home">Home</a></li>
           {{-- <li class="breadcrumb-item">Setup Master Tagihan</li> --}}
           <li class="breadcrumb-item active" aria-current="page">Daftar Permohonan</li>
@@ -28,7 +28,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12" align="right" style="margin-bottom: 15px;">
                       {{-- @if(Auth::user()->akses('MASTER DATA STATUS','tambah')) --}}
                     	<div class="btn-group">
-                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-warning dropdown-toggle border-0 shadown-none" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #499DB1 !important">
                             Filter Status
                         </button>
                         <div class="dropdown-menu">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="table-responsive">
         				        <table class="table table_status table-hover " id="table-data" cellspacing="0">
-                            <thead class="bg-warning text-white">
+                          <thead class="bg-warning text-white" style="background-color: #499DB1 !important">
                               <tr>
                                 <th>No. Surat</th>
                                 <th>Jenis Surat</th>
