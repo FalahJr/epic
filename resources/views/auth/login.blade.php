@@ -48,7 +48,7 @@
           </div> --}}
 
           <span class="login100-form-title p-b-34 p-t-27">
-            Login Smartics
+            Login Epic
           </span>
 
           <div class="wrap-input100 validate-input" data-validate = "Enter Username">

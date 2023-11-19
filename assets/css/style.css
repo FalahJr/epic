@@ -8827,7 +8827,7 @@ body {
   line-height: 1.5;
   color: #000;
   text-align: left;
-  background-color: #f39c12;
+  background-color: #499DB1;
 }
 
 [tabindex="-1"]:focus {
@@ -20246,18 +20246,18 @@ input:focus {
 
 .sidebar-grdient-dark,
 .sidebar {
-  background: #f39c12;
-  background: -moz-#f39c12;
+  background: #499DB1;
+  background: -moz-#499DB1;
   background: -webkit-gradient(
     left top,
     left bottom,
     color-stop(0%, #2a2e3b),
     color-stop(100%, #393e50)
   );
-  background: -webkit-#f39c12;
-  background: -o-#f39c12;
-  background: -ms-#f39c12;
-  background: #f39c12;
+  background: -webkit-#499DB1;
+  background: -o-#499DB1;
+  background: -ms-#499DB1;
+  background: #499DB1;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a2e3b', endColorstr='#393e50', GradientType=0 );
   color: #ffffff;
 }
@@ -20274,7 +20274,7 @@ input:focus {
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
   -ms-transition: width 0.25s ease, background 0.25s ease;
-  background: #f39c12;
+  background: #499DB1;
 }
 .sidebar .nav {
   overflow: hidden;
@@ -21450,7 +21450,7 @@ address p {
 
 /* Miscellanoeous */
 body {
-  background: #f39c12;
+  background: #499DB1;
 }
 
 body,
@@ -21703,9 +21703,9 @@ table > thead.bg-gradient-danger {
 }
 
 .bg-gradient-dark {
-  background: -moz-#f39c12;
-  background: -webkit-#f39c12;
-  background: #f39c12;
+  background: -moz-#499DB1;
+  background: -webkit-#499DB1;
+  background: #499DB1;
 }
 
 @media (min-width: 992px) {
@@ -21779,7 +21779,7 @@ table > thead.bg-gradient-danger {
     display: flex;
     -webkit-align-items: center;
     align-items: center;
-    background: #f39c12;
+    background: #499DB1;
     padding: 0.5rem 1.4rem;
     left: 70px;
     position: absolute;
@@ -21839,8 +21839,8 @@ table > thead.bg-gradient-danger {
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
     display: block;
     padding: 0.5rem 0;
-    background: -webkit-#f39c12;
-    background: #f39c12;
+    background: -webkit-#499DB1;
+    background: #499DB1;
     border-radius: 0 0 5px 0;
     position: absolute;
     top: 48px;

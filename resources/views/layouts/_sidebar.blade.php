@@ -1,13 +1,13 @@
 <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center ">
-        <a class="navbar-brand brand-logo" href="{{url('/home')}}">
-          <img src="{{asset('public/assets/img/smartics.png')}}" alt="logo" style="margin: auto; width:45%; height:100%" >
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" style="  background-color: #499DB1;">
+        <a class="navbar-brand brand-logo " href="{{url('/home')}}">
+          <img src="{{asset('public/assets/img/epic.png')}}" alt="logo" style="margin: auto; width:35%; height:100%" >
           {{-- <h1 style="margin:auto; ">DompetQu</h1> --}}
         </a>
         <a class="navbar-brand brand-logo-mini" href="{{url('/home')}}">
           {{-- <img src="{{asset('assets/atonergi-mini.png')}}" alt="logo"/> --}}
-          <h1 style="margin:auto; ">Smartics</h1>
+          <h1 style="margin:auto; ">Epic</h1>
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">

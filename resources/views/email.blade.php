@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Email Smartics</title>
+    <title>Email Epic</title>
     <style>
       /* -------------------------------------
           GLOBAL RESETS
@@ -391,7 +391,7 @@
                 </tr> --}}
                 <tr>
                   <td class="content-block powered-by">
-                    Powered by <a href="{{url('/')}}">Smartics</a>.
+                    Powered by <a href="{{url('/')}}">Epic</a>.
                   </td>
                 </tr>
               </table>
