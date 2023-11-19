@@ -13,14 +13,14 @@
         <ol class="breadcrumb bg-warning" style="background-color: #499DB1 !important">
           <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/home">Home</a></li>
           {{-- <li class="breadcrumb-item">Setup Master Tagihan</li> --}}
-          <li class="breadcrumb-item active" aria-current="page">Video Panduan</li>
+          <li class="breadcrumb-item active" aria-current="page">Pertanyaan Survey Kepuasan</li>
         </ol>
       </nav>
     </div>
   	<div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Video Panduan</h4>
+                    <h4 class="card-title">Pertanyaan Survey Kepuasan</h4>
                     <div class="col-md-12 col-sm-12 col-xs-12" align="right" style="margin-bottom: 15px;">
                       {{-- @if(Auth::user()->akses('MASTER DATA STATUS','tambah')) --}}
                       <button type="button" class="btn btn-warning shadow-none border-0" data-toggle="modal" data-target="#tambah" style="background-color: #499DB1 !important"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah Data</button>
