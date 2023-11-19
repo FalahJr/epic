@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-lg-12">
       <nav aria-label="breadcrumb" role="navigation">
-        <ol class="breadcrumb bg-warning">
+        <ol class="breadcrumb bg-warning" style="background-color: #499DB1 !important">
           <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/home">Home</a></li>
           {{-- <li class="breadcrumb-item">Setup Master Tagihan</li> --}}
           <li class="breadcrumb-item active" aria-current="page">Kelola Jenis dan Syarat Perizinan</li>
@@ -23,12 +23,12 @@
                     <h4 class="card-title">Kelola Jenis dan Syarat Perizinan</h4>
                     <div class="col-md-12 col-sm-12 col-xs-12" align="right" style="margin-bottom: 15px;">
                       {{-- @if(Auth::user()->akses('MASTER DATA STATUS','tambah')) --}}
-                    	<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#tambah"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah Data</button>
+                      <button type="button" class="btn btn-warning shadow-none border-0" data-toggle="modal" data-target="#tambah" style="background-color: #499DB1 !important"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah Data</button>
                       {{-- @endif --}}
                     </div>
                     <div class="table-responsive">
         				        <table class="table table_status table-hover " id="table-data" cellspacing="0">
-                            <thead class="bg-warning text-white">
+                          <thead class="bg-warning text-white" style="background-color: #499DB1 !important">
                               <tr>
                                 <th>No</th>
                                 <th>Nama</th>
