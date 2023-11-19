@@ -113,4 +113,11 @@ Route::get('/listroom', 'ChatController@listroom');
 Route::get('/listchat', 'ChatController@listchat');
 Route::get('/sendchat', 'ChatController@sendchat');
 
+// Video Panduan
+Route::get('video-panduan', 'VideoPanduanController@index');
+Route::get('videopanduantable', 'VideoPanduanController@datatable');
+Route::get('editvideopanduan', 'VideoPanduanController@edit');
+Route::get('simpanvideopanduan', 'VideoPanduanController@simpan');
+Route::get('hapusvideopanduan', 'VideoPanduanController@hapus');
+
 }); // End Route Groub middleware auth

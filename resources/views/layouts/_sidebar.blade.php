@@ -147,6 +147,8 @@
                   <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('petugas/')}}">Petugas<span class="d-none">Setting</span></a></li>
                   <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('pemohon/')}}">Pemohon<span class="d-none">Setting</span></a></li>
                   <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('surat-jenis')}}">Jenis dan Syarat Surat<span class="d-none">Setting</span></a></li>
+                  <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('video-panduan')}}">Video Panduan<span class="d-none">Setting</span></a></li>
+                  
 
                 </ul>
                 </div>
