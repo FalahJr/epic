@@ -120,4 +120,11 @@ Route::get('editvideopanduan', 'VideoPanduanController@edit');
 Route::get('simpanvideopanduan', 'VideoPanduanController@simpan');
 Route::get('hapusvideopanduan', 'VideoPanduanController@hapus');
 
+// Management pertanyaan survey kepuasan
+Route::get('survey-kepuasan/management-pertanyaan', 'PertanyaanSurveyKepuasanController@index');
+Route::get('pertanyaansurveykepuasantable', 'PertanyaanSurveyKepuasanController@datatable');
+Route::get('editpertanyaansurveykepuasan', 'PertanyaanSurveyKepuasanController@edit');
+Route::get('simpanpertanyaansurveykepuasan', 'PertanyaanSurveyKepuasanController@simpan');
+Route::get('hapuspertanyaansurveykepuasan', 'PertanyaanSurveyKepuasanController@hapus');
+
 }); // End Route Groub middleware auth

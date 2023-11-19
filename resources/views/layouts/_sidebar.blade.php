@@ -196,12 +196,20 @@
               </a>
             </li> --}}
 
-            <li class="nav-item {{Request::is('statistik') ? 'active' : ''}}">
-              <a class="nav-link" href="{{url('/statistik')}}">
-                <span class="menu-title">Ulasan</span>
-                {{-- <span class="menu-sub-title">( 2 new updates )</span> --}}
-                <i class="fa fa-bar-chart"></i>
+            <li class="nav-item {{Request::is('setting') || Request::is('setting/*') ? 'active' : ''  }}">
+              <a class="nav-link" data-toggle="collapse" href="#survey_kepuasan" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Survey Kepuasan</span>
+                
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-settings menu-icon mdi-spin"></i>
               </a>
+              <div class="collapse {{Request::is('survey_kepuasan') || Request::is('survey_kepuasan/*') ? 'show' : '' }}" id="survey_kepuasan">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link {{Request::is('setting/modul/keuangan/setting/klasifikasi-akun') || Request::is('setting/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('setting/modul/keuangan/setting/klasifikasi-akun')}}">Hasil Kepuasan</span></a></li>
+                  <li class="nav-item"> <a class="nav-link {{Request::is('setting/modul/keuangan/setting/klasifikasi-akun') || Request::is('setting/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('survey-kepuasan/management-pertanyaan')}}">Management Pertanyaan<span class="d-none">Setting</span></a></li>
+
+                </ul>
+                </div>
             </li>
             <li class="nav-item {{Request::is('chatbot') ? 'active' : ''}}">
               <a class="nav-link" href="{{url('/chatbot')}}">
