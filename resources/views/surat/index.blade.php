@@ -16,14 +16,14 @@
         <ol class="breadcrumb bg-warning" style="background-color: #499DB1 !important">
           <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/home">Home</a></li>
           {{-- <li class="breadcrumb-item">Setup Master Tagihan</li> --}}
-          <li class="breadcrumb-item active" aria-current="page">Daftar Permohonan</li>
+          <li class="breadcrumb-item active" aria-current="page">List Permohonan Perizinan</li>
         </ol>
       </nav>
     </div>
   	<div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Daftar Permohonan ( <span id="filter_status">Pilih Semua</span> )</h4>
+                    <h4 class="card-title">List Permohonan Perizinan ( <span id="filter_status">Semua</span> )</h4>
                     
                     <div class="col-md-12 col-sm-12 col-xs-12" align="right" style="margin-bottom: 15px;">
                       {{-- @if(Auth::user()->akses('MASTER DATA STATUS','tambah')) --}}
@@ -32,7 +32,7 @@
                             Filter Status
                         </button>
                         <div class="dropdown-menu">
-                             <a class="dropdown-item" href="#" onclick="handleFilter('Pilih Semua')">Pilih Semua</a>
+                             <a class="dropdown-item" href="#" onclick="handleFilter('Semua')">Semua</a>
                             <a class="dropdown-item" href="#" onclick="handleFilter('Pengisian Dokumen')">Pengisian Dokumen</a>
                             <a class="dropdown-item" href="#" onclick="handleFilter('Validasi Operator')">Validasi Operator</a>
                             <a class="dropdown-item" href="#" onclick="handleFilter('Verifikasi Verifikator')">Verifikasi Verifikator</a>
@@ -73,7 +73,7 @@
 @endsection
 @section('extra_script')
 <script>
-var selectedStatus = 'Pilih Semua'; 
+var selectedStatus = 'Semua'; 
 function handleFilter(status) {
     selectedStatus = status ;  // update selectedStatus
     document.getElementById("filter_status").innerHTML = status

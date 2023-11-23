@@ -134,6 +134,7 @@
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
+            @if (Auth::user()->role_id ===1 || Auth::user()->role_id ===5)
 
             <li class="nav-item {{Request::is('data-master') || Request::is('data-master/*') ? 'active' : ''  }}">
               <a class="nav-link" data-toggle="collapse" href="#data-master" aria-expanded="false" aria-controls="ui-basic">
@@ -142,24 +143,29 @@
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-settings menu-icon mdi-spin"></i>
               </a>
+              
               <div class="collapse {{Request::is('data-master') || Request::is('data-master/*') ? 'show' : '' }}" id="data-master">
                 <ul class="nav flex-column sub-menu">
+                  @if (Auth::user()->role_id ===1)
                   <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('petugas/')}}">Petugas<span class="d-none">Setting</span></a></li>
                   <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('pemohon/')}}">Pemohon<span class="d-none">Setting</span></a></li>
-                  <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('surat-jenis')}}">Jenis dan Syarat Surat<span class="d-none">Setting</span></a></li>
+                  <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('surat-jenis')}}">Jenis dan Syarat Perizinan<span class="d-none">Setting</span></a></li>
+                  @endif
+                 
                   <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('video-panduan')}}">Video Panduan<span class="d-none">Setting</span></a></li>
                   
 
                 </ul>
                 </div>
             </li>
+            @endif
             
 
             
 
             <li class="nav-item {{Request::is('uangkeluar') ? 'active' : ''}}">
               <a class="nav-link" href="{{url('/surat')}}">
-                <span class="menu-title">Daftar Permohonan</span>
+                <span class="menu-title">Daftar Perizinan</span>
                 <span class="menu-sub-title">( 2 )</span>
                 <i class="fa fa-cloud-upload-alt"></i>
               </a>
@@ -172,6 +178,7 @@
                 <i class="fa fa-cloud-download-alt"></i>
               </a>
             </li>
+            @if (Auth::user()->role_id === 1)
             <li class="nav-item {{Request::is('setting') || Request::is('setting/*') ? 'active' : ''  }}">
               <a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Survey</span>
@@ -187,6 +194,8 @@
                 </ul>
                 </div>
             </li>
+            @endif
+            
 
             {{-- <li class="nav-item {{Request::is('mutasi') ? 'active' : ''}}">
               <a class="nav-link" href="{{url('/mutasi')}}">
@@ -195,7 +204,8 @@
                 {{-- <i class="fa fa-history"></i>
               </a>
             </li> --}}
-
+            @if (Auth::user()->role_id === 1)
+            
             <li class="nav-item {{Request::is('setting') || Request::is('setting/*') ? 'active' : ''  }}">
               <a class="nav-link" data-toggle="collapse" href="#survey_kepuasan" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Survey Kepuasan</span>
@@ -211,6 +221,9 @@
                 </ul>
                 </div>
             </li>
+            @endif
+            @if (Auth::user()->role_id == 5)
+
             <li class="nav-item {{Request::is('chatbot') ? 'active' : ''}}">
               <a class="nav-link" href="{{url('/chatbot')}}">
                 <span class="menu-title">Chatbot</span>
@@ -218,8 +231,9 @@
                 <i class="fa fa-bar-chart"></i>
               </a>
             </li>
+            @endif
 
-            @if (Auth::user()->role_id == 2 || Auth::user()->role_id == 9)
+            @if (Auth::user()->role_id == 5 || Auth::user()->role_id == 9)
             <li class="nav-item {{Request::is('chat') ? 'active' : ''}}">
               <a class="nav-link" href="{{url('/chat')}}">
                 <span class="menu-title">Live Chat</span>

@@ -33,7 +33,10 @@
                                 <th>No</th>
                                 <th>Judul</th>
                                 <th>Link Video</th>
+                                @if (Auth::user()->role_id ===1)
                                 <th>Action</th>
+                                  
+                                @endif
                               </tr>
                             </thead>
 
@@ -92,7 +95,10 @@ var table = $('#table-data').DataTable({
           {data: 'DT_RowIndex', name: 'DT_RowIndex'},
           {data: 'nama', name: 'nama'},
           {data:'url', name: 'url'},
+          @if (Auth::user()->role_id ===1)
+
           {data: 'aksi', name: 'aksi'},
+          @endif
 
         ],
         "language": {
