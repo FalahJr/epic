@@ -23,10 +23,16 @@
   	<div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">List Permohonan Perizinan ( <span id="filter_status">Semua</span> )</h4>
+                    <h4 class="card-title">List Permohonan Perizinan 
+                      @if(Auth::user()->role_id === 1) 
+                      ( <span id="filter_status">Semua</span> )
+                      @endif
+                    </h4>
                     
                     <div class="col-md-12 col-sm-12 col-xs-12" align="right" style="margin-bottom: 15px;">
                       {{-- @if(Auth::user()->akses('MASTER DATA STATUS','tambah')) --}}
+                      @if(Auth::user()->role_id === 1)
+
                     	<div class="btn-group">
                         <button type="button" class="btn btn-warning dropdown-toggle border-0 shadown-none" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #499DB1 !important">
                             Filter Status
@@ -42,7 +48,7 @@
                             <a class="dropdown-item" href="#" onclick="handleFilter('Selesai')">Selesai</a>
                         </div>
                     </div>
-                      {{-- @endif --}}
+                      @endif
                     </div>
                     <div class="table-responsive">
         				        <table class="table table_status table-hover " id="table-data" cellspacing="0">
