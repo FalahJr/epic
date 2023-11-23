@@ -34,13 +34,16 @@ class ArsipController extends Controller
       // $data = DB::table('surat')->get();
 
       if($surat_jenis !== 'Semua'){
-      $data = DB::table('surat')->join('surat_jenis', 'surat_jenis.id', '=', "surat.surat_jenis_id")->where('surat_jenis.nama', $surat_jenis)->where('status', 'Selesai')->get();
+      $data = DB::table('surat')->join('surat_jenis', 'surat_jenis.id', '=', "surat.surat_jenis_id")->where('surat_jenis.nama', $surat_jenis)->where(function ($query) {
+        $query->where('status', 'Ditolak')
+              ->orWhere('status', 'Selesai');
+    })->get();
 
       // $surat_dokumen = DB::table("surat_dokumen")->join('surat_syarat', 'surat_syarat.id', '=', 'surat_dokumen.surat_syarat_id')
       // ->where('surat_dokumen.surat_id', $surat->id)->get();
     }else{
       // $data;
-      $data = DB::table('surat')->where('status', 'Selesai')->get();
+      $data = DB::table('surat')->where('status', 'Selesai')->orWhere('status', 'Ditolak')->get();
     }
 
 
@@ -65,19 +68,19 @@ class ArsipController extends Controller
           $user = DB::table('user')->where('id', $data->user_id)->first();
           return $user->nama_lengkap;
         })
-      //   ->addColumn('status', function ($data) {
-      //     $color = '<div><strong class="text-warning">' . $data->status . '</strong></div>';
+        ->addColumn('status', function ($data) {
+          $color = '<div><strong class="text-warning">' . $data->status . '</strong></div>';
       
-      //     if ($data->status == "Selesai") {
-      //         // Tombol "Approve" hanya muncul jika is_active == 1
-      //         $color =  '<div><strong class="text-success">' . $data->status . '</strong></div>';
-      //     } else if ($data->status == "Ditolak"){
-      //       $color = '<div><strong class="text-danger">' . $data->status . '</strong></div>';
-      //     }else{
-      //       $color;
-      //     }
-      //     return $color;
-      // })
+          if ($data->status == "Selesai") {
+              // Tombol "Approve" hanya muncul jika is_active == 1
+              $color =  '<div><strong class="text-success">' . $data->status . '</strong></div>';
+          } else if ($data->status == "Ditolak"){
+            $color = '<div><strong class="text-danger">' . $data->status . '</strong></div>';
+          }else{
+            $color;
+          }
+          return $color;
+      })
       ->addColumn('tanggal_pengajuan', function ($data) {
         return Carbon::parse($data->created_at)->format('d F Y');
 
@@ -88,7 +91,7 @@ class ArsipController extends Controller
                      '<label class="fa fa-eye w-100"></label></button>'.
                   '</div>';
           })
-          ->rawColumns(['aksi','jadwal_survey','user', 'tanggal_pengajuan'])
+          ->rawColumns(['aksi','jadwal_survey','user', 'tanggal_pengajuan','status'])
           ->addIndexColumn()
           // ->setTotalRecords(2)
           ->make(true);

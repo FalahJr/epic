@@ -16,20 +16,20 @@
         <ol class="breadcrumb bg-warning" style="background-color: #499DB1 !important">
           <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/home">Home</a></li>
           {{-- <li class="breadcrumb-item">Setup Master Tagihan</li> --}}
-          <li class="breadcrumb-item active" aria-current="page">Daftar Surat Perizinan Selesai</li>
+          <li class="breadcrumb-item active" aria-current="page">Daftar Arsip Perizinan</li>
         </ol>
       </nav>
     </div>
   	<div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Daftar Surat Perizinan Selesai ( <span id="filter_jenis_surat">Semua</span> )</h4>
+                    <h4 class="card-title">Daftar Arsip Perizinan ( <span id="filter_jenis_surat">Semua</span> )</h4>
                     
                     <div class="col-md-12 col-sm-12 col-xs-12" align="right" style="margin-bottom: 15px;">
                       {{-- @if(Auth::user()->akses('MASTER DATA STATUS','tambah')) --}}
                     	<div class="btn-group">
                         <button type="button" class="btn btn-warning dropdown-toggle border-0 shadown-none" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #499DB1 !important">
-                            Filter Status
+                            Filter Jenis Perizinan
                         </button>
                         <div class="dropdown-menu">
                              <a class="dropdown-item" href="#" onclick="handleFilter('Semua')">Semua</a>
@@ -55,6 +55,7 @@
                                 <th>Jenis Surat</th>
                                 <th>Nama Pemohon</th>
                                 <th>Jadwal Survey</th>
+                                <th>Status</th>
                                 <th>Tanggal Pengajuan</th>
                                 <th>Action</th>
                               </tr>
@@ -108,19 +109,19 @@ var table = $('#table-data').DataTable({
               },
               {
                  targets: 1,
-                 className: 'nominal center'
+                 className: 'center'
               },
               {
                  targets: 2,
-                 className: ' center'
+                 className: 'center'
               },
               {
                  targets: 3,
-                 className: ' center'
+                 className: 'center'
               },
               {
                  targets: 4,
-                 className: ' center'
+                 className: 'center'
               },
              
              
@@ -130,6 +131,7 @@ var table = $('#table-data').DataTable({
           {data: 'surat_jenis', name: 'surat_jenis'},
           {data: 'user', name: 'user'},
           {data:'jadwal_survey', name: 'jadwal_survey'},
+          {data:'status', name: 'status'},
           {data:'tanggal_pengajuan', name: 'tanggal_pengajuan'},
           {data: 'aksi', name: 'aksi'},
 
