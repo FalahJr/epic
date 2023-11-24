@@ -178,7 +178,7 @@
                 <i class="fa fa-cloud-download-alt"></i>
               </a>
             </li>
-            @if (Auth::user()->role_id === 1)
+            @if (Auth::user()->role_id === 1 || Auth::user()->role_id == 6)
             <li class="nav-item {{Request::is('setting') || Request::is('setting/*') ? 'active' : ''  }}">
               <a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Survey</span>
@@ -243,7 +243,7 @@
             </li>
             @endif
 
-            @if (Auth::user()->role_id == 5)
+            @if (Auth::user()->role_id == 5 || Auth::user()->role_id == 6)
             <li class="nav-item {{Request::is('video-panduan') ? 'active' : ''}}">
               <a class="nav-link" href="{{url('/video-panduan')}}">
                 <span class="menu-title">Video Panduan</span>

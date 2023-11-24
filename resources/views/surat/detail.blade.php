@@ -50,7 +50,7 @@
          @if (Auth::user()->role_id === 5 || Auth::user()->role_id === 6)
          <div class="col-12">
           <input type="hidden" class="form-control form-control-sm id" name="id" id="id">
-          <button class="btn btn-warning btn-md w-100 mb-3" id="validasi" type="button">
+          <button class="btn btn-warning btn-md w-100 mb-3 border-0 shadown-none" id="validasi" type="button"  style="background-color: #499DB1 !important">
          @if (Auth::user()->role_id === 5)
            
             Validasi
@@ -58,7 +58,7 @@
             Verifikasi
             @endif
           </button>
-          <button class="btn btn-light btn-md w-100 text-warning border border-warning" id="showModalTolak" type="button">
+          <button class="btn btn-light btn-md w-100 text-warning " id="showModalTolak" type="button"  style="color: #499DB1 !important">
             Tolak
           </button>
         </div>
