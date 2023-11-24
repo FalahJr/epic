@@ -23,7 +23,10 @@
                     <h4 class="card-title">Video Panduan</h4>
                     <div class="col-md-12 col-sm-12 col-xs-12" align="right" style="margin-bottom: 15px;">
                       {{-- @if(Auth::user()->akses('MASTER DATA STATUS','tambah')) --}}
+                      @if (Auth::user()->role_id == 1)
                       <button type="button" class="btn btn-warning shadow-none border-0" data-toggle="modal" data-target="#tambah" style="background-color: #499DB1 !important"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah Data</button>
+                      @endif
+                     
                       {{-- @endif --}}
                     </div>
                     <div class="table-responsive">

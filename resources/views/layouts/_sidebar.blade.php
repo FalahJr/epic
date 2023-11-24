@@ -134,7 +134,7 @@
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
-            @if (Auth::user()->role_id ===1 || Auth::user()->role_id ===5)
+            @if (Auth::user()->role_id ===1)
 
             <li class="nav-item {{Request::is('data-master') || Request::is('data-master/*') ? 'active' : ''  }}">
               <a class="nav-link" data-toggle="collapse" href="#data-master" aria-expanded="false" aria-controls="ui-basic">
@@ -146,11 +146,11 @@
               
               <div class="collapse {{Request::is('data-master') || Request::is('data-master/*') ? 'show' : '' }}" id="data-master">
                 <ul class="nav flex-column sub-menu">
-                  @if (Auth::user()->role_id ===1)
+                  {{-- @if (Auth::user()->role_id ===1) --}}
                   <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('petugas/')}}">Petugas<span class="d-none">Setting</span></a></li>
                   <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('pemohon/')}}">Pemohon<span class="d-none">Setting</span></a></li>
                   <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('surat-jenis')}}">Jenis dan Syarat Perizinan<span class="d-none">Setting</span></a></li>
-                  @endif
+                  {{-- @endif --}}
                  
                   <li class="nav-item"> <a class="nav-link {{Request::is('data-master/modul/keuangan/data-master/klasifikasi-akun') || Request::is('data-master/modul/keuangan/setting/klasifikasi-akun/*') ? 'active' : ''  }}" href="{{url('video-panduan')}}">Video Panduan<span class="d-none">Setting</span></a></li>
                   
@@ -242,6 +242,17 @@
               </a>
             </li>
             @endif
+
+            @if (Auth::user()->role_id == 5)
+            <li class="nav-item {{Request::is('video-panduan') ? 'active' : ''}}">
+              <a class="nav-link" href="{{url('/video-panduan')}}">
+                <span class="menu-title">Video Panduan</span>
+                {{-- <span class="menu-sub-title">( 2 new updates )</span> --}}
+                <i class="fa fa-bar-chart"></i>
+              </a>
+            </li>
+            @endif
+
              
 
           </ul>
