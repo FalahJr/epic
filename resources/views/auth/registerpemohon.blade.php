@@ -50,7 +50,7 @@
             </div> --}}
 
             <span class="login100-form-title p-b-34 p-t-27">
-              Daftar Smartics
+              Daftar Epic
             </span>
 
             @if (session('sukses'))
@@ -77,10 +77,6 @@
               <label for="pekerjaan" class="mb-2">Pekerjaan</label>
               <input type="text" class="form-control form-control-sm inputtext pekerjaan" name="pekerjaan">
             </div>
-            <div class="col-md-6  mb-3">
-              <label for="alamat" class="mb-2">Alamat</label>
-              <input type="text" class="form-control form-control-sm inputtext alamat" name="alamat">
-            </div>
             <div class="col-md-6 mb-3">
               <label for="email" class="mb-2">Email</label>
               @if (isset($email))
@@ -92,6 +88,17 @@
               <div class="red"  style="color: red"><b>Email sudah terdaftar</b></div>
               @endif
             </div>
+            <div class="col-md-6  mb-3">
+              <label for="alamat" class="mb-2">Alamat</label>
+              <input type="text" class="form-control form-control-sm inputtext alamat" name="alamat">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="no_telp" class="mb-2">Nomor Telepon</label>
+              <input type="number" class="form-control form-control-sm inputtext no_telp" name="no_telp">
+              @if (session('nohp'))
+              <div class="red"  style="color: red"><b>No Telepon sudah terdaftar</b></div>
+              @endif
+            </div>
             <div class="col-md-6 mb-3">
               <label for="provinsi" class="mb-2">Provinsi</label>
               <select class="form-control form-control-sm provinsi" name="provinsiselect" id="provinsiselect" onchange="selectProvinsi()" >
@@ -100,11 +107,8 @@
               <input type="hidden" name="provinsi" id="provinsivalue">
             </div>
             <div class="col-md-6 mb-3">
-              <label for="no_telp" class="mb-2">Nomor Telepon</label>
-              <input type="text" class="form-control form-control-sm inputtext no_telp" name="no_telp">
-              @if (session('nohp'))
-              <div class="red"  style="color: red"><b>No Telepon sudah terdaftar</b></div>
-              @endif
+              <label for="tempat_lahir" class="mb-2">Tempat Lahir</label>
+              <input type="text" class="form-control form-control-sm inputtext tempat_lahir" name="tempat_lahir">
             </div>
             <div class="col-md-6 mb-3">
               <label for="kabupaten_kota" class="mb-2">Kabupaten / Kota</label>
@@ -114,8 +118,11 @@
               <input type="hidden" name="kabupaten_kota" id="kabupatenvalue">
             </div>
             <div class="col-md-6 mb-3">
-              <label for="tempat_lahir" class="mb-2">Tempat Lahir</label>
-              <input type="text" class="form-control form-control-sm inputtext tempat_lahir" name="tempat_lahir">
+              <label for="tanggal_lahir" class="mb-2">Tanggal Lahir</label>
+              <input type="date" class="form-control form-control-sm inputtext tanggal_lahir" name="tanggal_lahir">
+              @if (session('tanggal_lahir'))
+              <div class="red"  style="color: red"><b>Tanggal Lahir kosong</b></div>
+              @endif
             </div>
             <div class="col-md-6 mb-3">
               <label for="kecamatan" class="mb-2">Kecamatan</label>
@@ -123,13 +130,6 @@
                 <option disabled>Pilih</option>
               </select>
               <input type="hidden" name="kecamatan" id="kecamatanvalue">
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="tanggal_lahir" class="mb-2">Tanggal Lahir</label>
-              <input type="date" class="form-control form-control-sm inputtext tanggal_lahir" name="tanggal_lahir">
-              @if (session('tanggal_lahir'))
-              <div class="red"  style="color: red"><b>Tanggal Lahir kosong</b></div>
-              @endif
             </div>
             <div class="col-md-6 mb-3">
               <label for="jenis_kelamin" class="mb-2">Jenis Kelamin</label>
@@ -148,7 +148,11 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="jenis_identitas" class="mb-2">Jenis Identitas</label>
-              <input type="text" class="form-control form-control-sm inputtext jenis_identitas" name="jenis_identitas">
+              <select class="form-control form-control-sm jenis_identitas" name="jenis_identitas" id="jenis_identitas" >
+                <option disabled>Pilih</option>
+                <option value="KTP">KTP</option>
+                <option value="Paspor">Paspor</option>
+              </select>
             </div>
             <div class="col-md-6 mb-3">
               <label for="password" class="mb-2">Password</label>
