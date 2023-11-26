@@ -97,7 +97,7 @@
           <!-- Sign In With Google button with HTML data attributes API -->
           <center>
           <div id="g_id_onload"
-              data-client_id="971078947082-rk7onu14sv4ti19d85kvd1jedh6jflip.apps.googleusercontent.com"
+              data-client_id="971078947082-62am4du0ve1elv6aesj4tmgamsjd41fp.apps.googleusercontent.com"
               data-context="signin"
               data-ux_mode="popup"
               data-callback="handleCredentialResponse"
