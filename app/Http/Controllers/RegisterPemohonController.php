@@ -94,4 +94,68 @@ class RegisterPemohonController extends Controller
         return back();
       }
     }
+
+    public function apiregister(Request $req) {
+      DB::beginTransaction();
+      try { 
+        $cekemail = DB::table("user")->where("email", $req->email)->first();
+        $ceknohp = DB::table("user")->where("no_telp", $req->no_telp)->first();
+        $message = "";
+
+        $valid = true;
+        if ($cekemail != null) {
+          $message = 'Email sudah terdaftar!';
+          $valid = false;
+        }
+
+        if ($ceknohp != null) {
+          $message = 'Username sudah terdaftar!';
+          $valid = false;
+        }
+
+        if ($req->password != $req->konfirmasi_password) {
+          $message = 'Password confirm tidak sama!';
+          $valid = false;
+        }
+
+        if ($req->tanggal_lahir == null) {
+          $message = 'Tanggal lahir kosong!';
+          $valid = false;
+        }
+        
+        if ($valid == false) {
+          return response()->json(["status" => 2, "message" => $message]);
+        } else {
+          DB::table("user")
+            ->insert([
+              "role_id" => "9",
+              "password" => Crypt::encryptString($req->password),
+              "email" => $req->email,
+              "nama_lengkap" => $req->nama_lengkap,
+              "jenis_identitas" => $req->jenis_identitas,
+              "nomor_identitas" => $req->nomor_identitas,
+              "jenis_kelamin" => $req->jenis_kelamin,
+              "tempat_lahir" => $req->tempat_lahir,
+              "tanggal_lahir" => Carbon::parse($req->tanggal_lahir)->format("d M y"),
+              "provinsi" => $req->provinsi,
+              "kabupaten_kota" => $req->kabupaten_kota,
+              "kecamatan" => $req->kecamatan,
+              "kelurahan" => $req->kelurahan,
+              "alamat" => $req->alamat,
+              "no_telp" => $req->no_telp,
+              "pekerjaan" => $req->pekerjaan,
+              "is_active" => "Y",
+              "created_at" => Carbon::now('Asia/Jakarta'),
+              "updated_at" => Carbon::now('Asia/Jakarta'),
+            ]);
+            
+          DB::commit();
+          return response()->json(["status" => 1]);
+        }
+
+      } catch (\Exception $e) {
+        DB::rollback();
+        return response()->json(["status" => 2, "message" =>$e->getMessage()]);
+      }
+    }
 }

@@ -38,5 +38,5 @@ Route::middleware('api')->group(function () {
     Route::any('/countchat', 'ChatController@apicountchat');
 
     Route::any('loginpemohon', 'LoginPemohonController@loginApi');
-
+    Route::any('registerpemohon', 'RegisterPemohonController@apiregister');
 });
