@@ -61,6 +61,7 @@
           <div class="wrap-input100 validate-input" data-validate="Enter password">
             <input required="" class="input100" autocomplete="off" value="" type="password" name="password" id="password" placeholder="Password">
             <span class="focus-input100" data-placeholder="&#xf191;"></span>
+            <span class="focus-input100" style="pointer-events: auto; right:0 !important; width:0 !important; left: auto !important; color:white; margin-top: 12px; margin-right: 20px; cursor: pointer;" onclick="visiblePassword()"> <i id="iconPassword" class="fa fa-eye-slash"> </i> </span>
             @if (session('password'))
             <div class="red"  style="color: red"><b>Password Yang Anda Masukan Salah</b></div>
             @endif
@@ -121,8 +122,21 @@
 </body>
 </html>
 <script type="text/javascript">
+var visible = false;
 window.onload = function(e){
   $('#username').val(null);
   $('#password').val(null);
+}
+
+function visiblePassword() {
+  if (visible == true) {
+    $("iconPassword").attr("class", "fa fa-eye-slash");
+    $("#password").attr("type", "password")
+    visible = false
+  } else {
+    $("iconPassword").attr("class", "fa fa-eye");
+    $("#password").attr("type", "text")
+    visible = true
+  }
 }
 </script>
