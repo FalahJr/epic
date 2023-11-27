@@ -66,6 +66,38 @@ class ChatController extends Controller
       }
     }
 
+    public function apinewroom(Request $req) {
+      DB::beginTransaction();
+      try {
+
+            $cek = DB::table("roomchat")
+                      ->where("account", $req->auth_id . "-" . $req->id)
+                      ->first();
+
+            if ($cek != null) {
+              DB::table('roomchat')
+              ->where("id", $cek->id)
+              ->update([
+                "created_at" => Carbon::now('Asia/Jakarta'),
+              ]);
+            } else {
+              DB::table('roomchat')
+                ->insert([
+                  'account' => Auth::user()->id . "-" . $req->id,
+                  'last_message' => "",
+                  'counter_kedua' => 0,
+                  'created_at' => Carbon::now('Asia/Jakarta'),
+              ]);
+            }
+  
+           DB::commit();
+           return Response()->json("sukses");
+      } catch (\Exception $e) {
+           DB::rollback();
+           return Response()->json("gagal");
+      }
+    }
+
     public function apicountchat(Request $req) {
         $user = DB::table("user")->where("id", $req->id)->first();
 
