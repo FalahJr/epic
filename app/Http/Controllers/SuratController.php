@@ -33,22 +33,28 @@ class SuratController extends Controller
     public function datatable($status) {
       // $data = DB::table('surat')->get();
       if(Auth::user()->role_id === 1){
+            if($status !== 'Semua'){
+              $data = DB::table('surat')->where('status', $status)->get();
+            }else{
+              // $data;
+              $data = DB::table('surat')->where('status' ,'not like', 'Selesai')->where('status' ,'not like', 'Ditolak')->get();
+            }
+        }else if(Auth::user()->role_id === 5){
+            $data = DB::table('surat')->where('status', 'Validasi Operator')->get();
+          
+        }
+        else if(Auth::user()->role_id === 6){
+          $data = DB::table('surat')->where('status', 'Verifikasi Verifikator')->get();
 
-      if($status !== 'Semua'){
-      $data = DB::table('surat')->where('status', $status)->get();
-    }else{
-      // $data;
-      $data = DB::table('surat')->where('status' ,'not like', 'Selesai')->where('status' ,'not like', 'Ditolak')->get();
-
-    }
-  }else if(Auth::user()->role_id === 5){
-    $data = DB::table('surat')->where('status', 'Validasi Operator')->get();
-  
-}
-else if(Auth::user()->role_id === 6){
-  $data = DB::table('surat')->where('status', 'Verifikasi Verifikator')->get();
-
-}
+        }
+        else if(Auth::user()->role_id === 9){
+          if($status !== 'Semua'){
+            $data = DB::table('surat')->where('status', $status)->get();
+          }else{
+            // $data;
+            $data = DB::table('surat')->where('status' ,'not like', 'Selesai')->where('status' ,'not like', 'Ditolak')->get();
+          }
+        }
 
 
         // return $data;
