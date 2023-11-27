@@ -68,7 +68,7 @@
       }
       .message-wrap .message-list.me .msg {
       text-align: center;
-      background: #FFD18D;
+      background: #C4EAF3;
       color: black;
       box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
       padding: 5px;
@@ -77,7 +77,7 @@
       }
       .message-wrap .message-list .msg {
       text-align: center;
-      background: #FFD18D;
+      background: #F3F9FA;
       color: black;
       box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
       padding: 5px;
@@ -85,16 +85,17 @@
       border-radius: 10px;
       }
       .message-wrap .message-list .time {
-      text-align: right;
+      text-align: center;
       color: #999;
       font-size: 0.75em;
       }
 
       .message-footer {
-      background: #FFF6E8;
+      background: white;
       padding: 10px;
       display: flex;
       height: 60px;
+      border: 1px solid #499DB1;
       }
       .message-footer input {
       border: 0;
@@ -125,6 +126,7 @@
        sidebar .list-wrap {
       width: 100%;
       overflow: auto;
+      height: 100%;
       }
       sidebar .list-wrap .list {
       border-bottom: 1px solid #ccc;
@@ -134,10 +136,10 @@
       padding: 5px;
       height: 70px;
       cursor: pointer;
-      border-radius: 10px
+      /* border-radius: 10px */
       }
       sidebar .list-wrap .list:hover, sidebar .list-wrap .list.active {
-      background: white;
+      background: #F3F9FA;
       }
       sidebar .list-wrap .list img {
       border-radius: 50%;
@@ -205,7 +207,7 @@
   <div class="row">
     <div class="col-lg-12">
       <nav aria-label="breadcrumb" role="navigation">
-        <ol class="breadcrumb bg-warning">
+        <ol class="breadcrumb bg-warning" style="background-color: #499DB1 !important">
           <li class="breadcrumb-item"><i class="fa fa-home"></i>&nbsp;<a href="/home">Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">Live Chat</li>
         </ol>
@@ -237,7 +239,7 @@
                     <div class="message-footer">
                     <input type="text" data-placeholder="Send a message to {0}" id="placeholder" placeholder="Pesan" onkeydown="entermessage()" />
                     &nbsp
-                    <button type="button" name="button" onclick="sendmessage()" style="background-color: transparent; width:40px; color:black; border:0;"> <span class="fa fa-send"></span> </button>
+                    <button type="button" name="button" onclick="sendmessage()" style="background-color: #499DB1; width:40px; color:white; border-radius: 4px; border:0px;"> <span class="fa fa-send"></span> </button>
                     </div>
                 </div>
                 </div>
@@ -252,7 +254,7 @@
 @section('extra_script')
 <script>
 
-var idselect = 0;
+        var idselect = 0;
         var selectedroom = false;
         var penerima = "";
         var scrolled = false
@@ -285,7 +287,7 @@ var idselect = 0;
 
                   if (res.counter_kedua > 0) {
                     if (res.account.profile_toko != null) {
-                      html += '<div class="list chatkuning" onclick="clicked()">'+
+                      html += '<div class="list chatkuning" onclick="clicked('+res.account.id+')">'+
                         '<img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" />'+
                         '<div class="info">'+
                           '<span class="user">'+res.account.nama_lengkap+'</span>'+
@@ -296,7 +298,7 @@ var idselect = 0;
                         '<input type="hidden" class="iduser" name="id" value="'+res.id+'">'+
                         '</div>';
                     } else {
-                      html += '<div class="list chatkuning" onclick="clicked()">'+
+                      html += '<div class="list chatkuning" onclick="clicked('+res.account.id+')">'+
                         '<img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" />'+
                         '<div class="info">'+
                           '<span class="user">'+res.account.nama_lengkap+'</span>'+
@@ -309,7 +311,7 @@ var idselect = 0;
                     }
                   } else {
                     if (res.account.profile_toko != null) {
-                      html += '<div class="list" onclick="clicked()">'+
+                      html += '<div class="list" onclick="clicked('+res.account.id+')">'+
                         '<img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" />'+
                         '<div class="info">'+
                           '<span class="user">'+res.account.nama_lengkap+'</span>'+
@@ -319,7 +321,7 @@ var idselect = 0;
                         '<input type="hidden" class="iduser" name="id" value="'+res.id+'">'+
                         '</div>';
                     } else {
-                      html += '<div class="list" onclick="clicked()">'+
+                      html += '<div class="list" onclick="clicked('+res.account.id+')">'+
                         '<img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" />'+
                         '<div class="info">'+
                           '<span class="user">'+res.account.nama_lengkap+'</span>'+
@@ -329,12 +331,12 @@ var idselect = 0;
                         '<input type="hidden" class="iduser" name="id" value="'+res.id+'">'+
                         '</div>';
                     }
-
                   }
                 }
 
 
                 if (selectedroom == false) {
+                  console.log("asd")
                   idselect = data[0].id;
                 }
 
@@ -353,9 +355,7 @@ var idselect = 0;
                 function init() {
                 //input.focus();
                 let now = 2;
-                const texts = ["İyi akşamlar", "Merhaba, nasılsın?",
-                              "Harikasın! :)", "Günaydın", "Tünaydın",
-                              "Hahaha", "Öğlen görüşelim.", "Pekala"];
+                const texts = [""];
                 for(var i = 4; i < list.length; i++) {
                   list[i].querySelector(".time").innerText = `${now} day ago`;
                   list[i].querySelector(".text").innerText = texts[(i-4) < texts.length ? (i-4) : Math.floor(Math.random() * texts.length)];
@@ -452,17 +452,11 @@ var idselect = 0;
             data: {id: idselect},
     				success: function(data) {
 
-
-              $dinas = "";
-              if ("{{Auth::user()->role_id}}" == "2") {
-                $dinas = "admindinas";
-              }
-
               for (var i = 0; i < data.length; i++) {
                 let res = data[i]
                 let arraccount = res.account.split("-");
 
-                if (arraccount[0] == $dinas) {
+                if (arraccount[0] == "{{Auth::user()->id}}") {
                   penerima = arraccount[1];
                   if (res.photourl != null) {
                     html += '<div class="message-list me">'+
@@ -537,7 +531,8 @@ var idselect = 0;
             scrolled = true;
         }
 
-        function clicked() {
+        function clicked(id) {
+            penerima = id
             scrolled = false;
         }
 

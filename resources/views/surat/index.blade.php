@@ -169,6 +169,13 @@ var table = $('#table-data').DataTable({
       dataType:'json',
       success:function(data){
         console.log({data})
+        console.log(data.surat.status)
+        if (data.surat.status === "Penjadwalan Survey") {
+          $("#chatPetugas").css("display", "");
+          $("#chatPetugas").attr("onclick", "directChat("+data.surveyor.user_id+")");
+        } else {
+          $("#chatPetugas").css("display", "none");
+        }
         $('.id').val(data.surat.id);
         document.getElementById("jenis_perizinan").innerHTML = data.surat_jenis.nama;
         document.getElementById("surat_id").innerHTML = data.surat.id;
@@ -187,41 +194,51 @@ var table = $('#table-data').DataTable({
 
         // document.getElementById("nama_surat_syarat").innerHTML = text;
         function myFunction(item, index) {
-          const container = document.getElementById("nama_surat_syarat");
+        const container = document.getElementById("nama_surat_syarat");
 
-    // Create paragraph element
-    const para = document.createElement("p");
-    const node = document.createTextNode((index + 1) + ".) " + item.nama);
-    para.appendChild(node);
+        // Create paragraph element
+        const para = document.createElement("p");
+        const node = document.createTextNode((index + 1) + ".) " + item.nama);
+        para.appendChild(node);
 
-    // Create link element
-    const link = document.createElement("a");
-    link.setAttribute("href", item.dokumen_upload);  // Set the link's href attribute as needed
-    link.setAttribute("target", '_blank');  // Set the link's href attribute as needed
-    const text = document.createTextNode("Lihat Dokumen");
-    link.appendChild(text);
+        // Create link element
+        const link = document.createElement("a");
+        link.setAttribute("href", item.dokumen_upload);  // Set the link's href attribute as needed
+        link.setAttribute("target", '_blank');  // Set the link's href attribute as needed
+        const text = document.createTextNode("Lihat Dokumen");
+        link.appendChild(text);
 
-    // Apply CSS styles to reduce the margin between para and link
-    para.style.marginBottom = "1px";  // Adjust the value as needed
-    link.style.color = "#499DB1"
-    // Append paragraph and link to the container
-    container.appendChild(para);
-    container.appendChild(link);
+        // Apply CSS styles to reduce the margin between para and link
+        para.style.marginBottom = "1px";  // Adjust the value as needed
+        link.style.color = "#499DB1"
+        // Append paragraph and link to the container
+        container.appendChild(para);
+        container.appendChild(link);
 
-    // Add a line break for better separation
-    const lineBreak = document.createElement("br");
-    container.appendChild(lineBreak);
-    const lineBreak2 = document.createElement("br");
-    container.appendChild(lineBreak2);
-
-
-};
+        // Add a line break for better separation
+        const lineBreak = document.createElement("br");
+        container.appendChild(lineBreak);
+        const lineBreak2 = document.createElement("br");
+        container.appendChild(lineBreak2);
+  };
       
         // $('.datepicker').val(data.created_at)
         $('#detail').modal('show');
       }
     });
 
+  }
+
+  function directChat(id) {
+    $.ajax({
+      url: baseUrl + '/newroom?id='+id,
+      dataType:'json',
+      success:function(data){
+        if (data == "sukses") {}
+          localStorage.setItem("selected", 1);
+          window.location.href = baseUrl + "/chat";
+        }
+    });
   }
 
   $('#simpan').click(function(){

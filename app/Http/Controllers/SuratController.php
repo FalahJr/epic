@@ -389,7 +389,9 @@ class SuratController extends Controller
       $surat_dokumen = DB::table("surat_dokumen")->join('surat_syarat', 'surat_syarat.id', '=', 'surat_dokumen.surat_syarat_id')
       ->where('surat_dokumen.surat_id', $surat->id)->get();
 
-      
+      $surveyor = DB::table("survey")
+      ->where("surat_id", $surat->id)
+      ->first();
 
       $data = [
        'surat' => $surat,
@@ -397,7 +399,8 @@ class SuratController extends Controller
        'surat_jenis' => $surat_jenis,
        'tanggal_pengajuan' => Carbon::parse($surat->created_at)->format('d F Y'),
        'jadwal_survey' => $surat->jadwal_survey ? Carbon::parse($surat->jadwal_survey)->format('d F Y') : 'Belum Tersedia',
-       'surat_dokumen' => $surat_dokumen
+       'surat_dokumen' => $surat_dokumen,
+       'surveyor' => $surveyor,
       ];
       // $data->created_at = Carbon::parse($data->created_at)->format("d-m-Y");
 

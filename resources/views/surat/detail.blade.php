@@ -53,15 +53,21 @@
           <button class="btn btn-warning btn-md w-100 mb-3 border-0 shadown-none" id="validasi" type="button"  style="background-color: #499DB1 !important">
          @if (Auth::user()->role_id === 5)
            
-            Validasi
-            @else 
-            Verifikasi
-            @endif
+          Validasi
+          @else 
+          Verifikasi
+          @endif
           </button>
           <button class="btn btn-light btn-md w-100 text-warning " id="showModalTolak" type="button"  style="color: #499DB1 !important">
             Tolak
           </button>
         </div>
+         @endif
+
+         @if (Auth::user()->role_id == 9) 
+         <button class="btn btn-md w-100" id="chatPetugas" type="button" onclick="directChat()" style="color: white !important; border-radius: 20px; height: 40px; background-color: #499DB1 !important; margin-left: 20px; margin-right: 20px;">
+            Chat Petugas
+          </button>
          @endif
         </div>
       </div>
